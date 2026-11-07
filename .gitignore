@@ -1,0 +1,26 @@
+# Ambiente virtual
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Banco vetorial
+chatbot/modelos/banco_vetorial/
+
+# Modelo treinado
+*.joblib
+
+# Arquivos de backup
+api/servidor_backup.py
+
+# Dados duplicados
+regressao/dados/dados/
+
+# Temporários e configurações locais
+*.log
+.env

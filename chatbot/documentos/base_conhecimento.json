@@ -1,0 +1,155 @@
+
+{
+  "perguntas": [
+    {
+      "id": "faq01",
+      "pergunta": "Como faço para movimentar o personagem?",
+      "resposta": "O personagem pode se movimentar em quatro direções: direita, esquerda, cima e baixo, utilizando os comandos configurados no Mapa de Entrada."
+    },
+    {
+      "id": "faq02",
+      "pergunta": "Como faço para correr?",
+      "resposta": "Segure o comando de correr enquanto movimenta o personagem. A corrida consome 20 pontos de stamina por segundo, considerando o valor padrão."
+    },
+    {
+      "id": "faq03",
+      "pergunta": "Qual é a quantidade máxima de stamina?",
+      "resposta": "O personagem começa com 100 pontos de stamina. Esse valor pode ser alterado nas configurações do jogador."
+    },
+    {
+      "id": "faq04",
+      "pergunta": "Como recupero stamina?",
+      "resposta": "A stamina começa a se recuperar após um atraso padrão de 0,8 segundo. Enquanto anda, recupera 4 pontos por segundo; parado, recupera 20 pontos por segundo."
+    },
+    {
+      "id": "faq05",
+      "pergunta": "O que acontece quando a stamina acaba?",
+      "resposta": "Quando a stamina se esgota, o personagem não consegue mais correr até recuperar pelo menos 20 pontos, considerando o valor padrão."
+    },
+    {
+      "id": "faq06",
+      "pergunta": "Posso rastejar para evitar os zumbis?",
+      "resposta": "Sim. O personagem pode rastejar e, nesse estado, sua velocidade padrão é 35. O rastejamento também reduz o alcance em que os zumbis conseguem detectá-lo."
+    },
+    {
+      "id": "faq07",
+      "pergunta": "Qual é a velocidade do personagem em cada movimento?",
+      "resposta": "Os valores padrão são: 60 ao andar, 120 ao correr e 35 ao rastejar."
+    },
+    {
+      "id": "faq08",
+      "pergunta": "Como funciona o pulo?",
+      "resposta": "O pulo dura 0,40 segundo. Durante esse período, o sprite e o colisor em pé são elevados temporariamente em 20 pixels."
+    },
+    {
+      "id": "faq09",
+      "pergunta": "Com quantas vidas começo o jogo?",
+      "resposta": "O personagem começa com 3 vidas, conforme o valor padrão configurado no script."
+    },
+    {
+      "id": "faq10",
+      "pergunta": "O que acontece quando um zumbi me atinge?",
+      "resposta": "O personagem perde uma vida e sofre um empurrão. O sistema possui um intervalo padrão de 1 segundo entre os danos recebidos."
+    },
+    {
+      "id": "faq11",
+      "pergunta": "É possível recuperar vidas?",
+      "resposta": "Sim. O sistema do personagem possui uma função para recuperar vidas. A quantidade recuperada não ultrapassa o limite máximo de vidas."
+    },
+    {
+      "id": "faq12",
+      "pergunta": "Como os zumbis percebem a presença do jogador?",
+      "resposta": "Os zumbis verificam a distância até o jogador e utilizam o estado de movimento dele para determinar o alcance de detecção."
+    },
+    {
+      "id": "faq13",
+      "pergunta": "Qual movimento faz o zumbi detectar o jogador mais facilmente?",
+      "resposta": "Correr. O alcance padrão de detecção é de 250 unidades quando o jogador está correndo."
+    },
+    {
+      "id": "faq14",
+      "pergunta": "Rastejar ajuda a evitar a detecção dos zumbis?",
+      "resposta": "Sim. Quando o jogador rasteja, o alcance padrão de detecção do zumbi é de 70 unidades, menor do que andando ou correndo."
+    },
+    {
+      "id": "faq15",
+      "pergunta": "Qual é o alcance de detecção dos zumbis?",
+      "resposta": "Os valores padrão são: 30 unidades com o jogador parado, 70 rastejando, 150 andando e 250 correndo."
+    },
+    {
+      "id": "faq16",
+      "pergunta": "Como o zumbi persegue o jogador?",
+      "resposta": "O zumbi utiliza um NavigationAgent2D para calcular o caminho até o jogador e atualiza a rota periodicamente, com intervalo padrão de 0,2 segundo."
+    },
+    {
+      "id": "faq17",
+      "pergunta": "Quando o zumbi consegue atacar?",
+      "resposta": "O zumbi pode atacar quando chega à distância de contato, definida por uma distância de ataque padrão de 16 unidades mais uma margem de 2 unidades, desde que o caminho direto até o jogador esteja livre."
+    },
+    {
+      "id": "faq18",
+      "pergunta": "Com que frequência o zumbi pode atacar?",
+      "resposta": "O intervalo padrão entre os ataques é de 1 segundo. Depois de atacar, o zumbi também realiza uma pausa e sofre um pequeno recuo."
+    },
+    {
+      "id": "faq19",
+      "pergunta": "O que os zumbis fazem quando não detectam o jogador?",
+      "resposta": "Quando não estão perseguindo o jogador, os zumbis realizam uma patrulha seguindo as direções configuradas no script."
+    },
+    {
+      "id": "faq20",
+      "pergunta": "Em quais direções os zumbis fazem a patrulha?",
+      "resposta": "A sequência padrão da patrulha é direita, cima, esquerda e baixo. Cada trecho possui uma distância configurável e uma pausa padrão de 0,5 segundo ao terminar."
+    },
+    {
+      "id": "faq21",
+      "pergunta": "O zumbi desiste de perseguir o jogador?",
+      "resposta": "Sim. Quando já detectou o jogador, o zumbi deixa de persegui-lo se a distância ultrapassar o limite configurado, que é de 350 unidades por padrão."
+    },
+    {
+      "id": "faq22",
+      "pergunta": "O que acontece quando o zumbi fica preso em um obstáculo?",
+      "resposta": "O zumbi identifica quando não consegue avançar e tenta se destravar, testando a direção em que estava andando, os lados e a direção oposta."
+    },
+    {
+      "id": "faq23",
+      "pergunta": "O que acontece quando um zumbi morre?",
+      "resposta": "O zumbi é marcado como morto, deixa de perseguir o jogador, interrompe o movimento e inicia a animação de morte."
+    },
+    {
+      "id": "faq24",
+      "pergunta": "Como funciona a lanterna?",
+      "resposta": "A lanterna ilumina o ambiente ao redor do personagem. Ela pode ser ligada pelo comando configurado no Mapa de Entrada e consome bateria enquanto está ligada."
+    },
+    {
+      "id": "faq25",
+      "pergunta": "Com quanta bateria a lanterna começa?",
+      "resposta": "Por padrão, a lanterna começa com 100 unidades de bateria e possui capacidade máxima de 100 unidades."
+    },
+    {
+      "id": "faq26",
+      "pergunta": "Quanto tempo dura a bateria da lanterna?",
+      "resposta": "Com os valores padrão de 100 unidades de bateria e consumo de 5 unidades por segundo, a bateria pode durar aproximadamente 20 segundos de uso contínuo enquanto a lanterna estiver ligada."
+    },
+    {
+      "id": "faq27",
+      "pergunta": "Como recarrego a bateria da lanterna?",
+      "resposta": "O jogador pode coletar pilhas espalhadas pelo cenário. Cada pilha restaura 50 unidades de bateria por padrão, sem ultrapassar a capacidade máxima."
+    },
+    {
+      "id": "faq28",
+      "pergunta": "O que acontece quando a bateria da lanterna acaba?",
+      "resposta": "Quando a bateria chega a zero, a lanterna deixa de ter carga para funcionar normalmente e passa a emitir clarões periódicos. O intervalo padrão entre os clarões é de 6 segundos, com duração de 0,25 segundo."
+    },
+    {
+      "id": "faq29",
+      "pergunta": "Por que não consigo coletar uma pilha?",
+      "resposta": "A pilha só é coletada quando o personagem possui uma lanterna com espaço disponível para receber carga. Se a bateria estiver cheia, a pilha permanece no chão."
+    },
+    {
+      "id": "faq30",
+      "pergunta": "Como faço para passar por uma porta e entrar em outra área?",
+      "resposta": "Aproxime-se da porta e pressione o comando de interação configurado. A troca de cena só acontece se o jogador estiver dentro da área da porta, o menu estiver fechado e uma cena de destino estiver configurada."
+    }
+  ]
+}
