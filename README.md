@@ -67,5 +67,3 @@ Python, FastAPI, Sentence Transformers, ChromaDB, Ollama, Qwen, Scikit-learn, Pa
 O projeto implementa duas soluções de Machine Learning para o Campos Zone: um chatbot inteligente para auxiliar os jogadores e um modelo de regressão para estimar o tempo de conclusão das missões.
 
 Os resultados demonstram o funcionamento das soluções e sua disponibilização por meio de uma API REST. E a integração com o jogo no Godot.
-
-
