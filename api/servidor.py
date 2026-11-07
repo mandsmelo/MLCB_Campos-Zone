@@ -323,7 +323,7 @@ def gerar_resposta_ollama(pergunta, contexto):
 
         with urllib.request.urlopen(
             requisicao,
-            timeout=90
+            timeout=240
         ) as resposta:
 
             resultado = json.loads(

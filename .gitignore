@@ -12,8 +12,9 @@ __pycache__/
 # Banco vetorial
 chatbot/modelos/banco_vetorial/
 
-# Modelo treinado
+# Modelos treinados
 *.joblib
+!notebooks/regressao/modelos/melhor_modelo.joblib
 
 # Arquivos de backup
 api/servidor_backup.py
