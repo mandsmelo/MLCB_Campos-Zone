@@ -1,0 +1,183 @@
+
+[
+  {
+    "id": "faq01",
+    "pergunta": "Como faço para andar?",
+    "termos_busca": ["andar", "movimentar", "movimento", "teclas de movimento", "W A S D"],
+    "resposta": "Use as teclas W, A, S e D para movimentar Cromos: W para cima, A para a esquerda, S para baixo e D para a direita."
+  },
+  {
+    "id": "faq02",
+    "pergunta": "Como faço para correr?",
+    "termos_busca": ["correr", "corrida", "correr mais rápido", "tecla para correr", "Ctrl", "Control"],
+    "resposta": "Segure Ctrl para correr. Enquanto corre, você consome energia da barra de energia."
+  },
+  {
+    "id": "faq03",
+    "pergunta": "Como funciona a barra de energia?",
+    "termos_busca": ["barra de energia", "energia", "energia máxima", "quantidade de energia"],
+    "resposta": "A barra de energia pode chegar a 100 pontos. Correr consome energia, enquanto descansar permite recuperá-la."
+  },
+  {
+    "id": "faq04",
+    "pergunta": "Como recupero minha energia?",
+    "termos_busca": ["recuperar energia", "recarregar energia", "descansar", "energia regenerar"],
+    "resposta": "Sua energia se recupera automaticamente com o tempo. Ela é recuperada mais rapidamente quando você fica parado do que quando está andando."
+  },
+  {
+    "id": "faq05",
+    "pergunta": "O que acontece quando minha energia acaba?",
+    "termos_busca": ["energia acabou", "energia zerada", "não consigo correr", "sem energia"],
+    "resposta": "Quando a barra de energia chega a zero, você não consegue correr. Espere um pouco para recuperar energia antes de tentar correr novamente."
+  },
+  {
+    "id": "faq06",
+    "pergunta": "Como faço para rastejar?",
+    "termos_busca": ["rastejar", "engatinhar", "ficar abaixado", "tecla para rastejar", "Shift"],
+    "resposta": "Segure Shift para rastejar. Você se movimenta mais devagar, mas fica menos perceptível para os zumbis."
+  },
+  {
+    "id": "faq07",
+    "pergunta": "Quais são os tipos de movimento?",
+    "termos_busca": ["tipos de movimento", "andar correr rastejar", "movimentação", "formas de se mover"],
+    "resposta": "Você pode andar, correr e rastejar. Cada movimento tem uma velocidade diferente e pode influenciar a chance de os zumbis perceberem você."
+  },
+  {
+    "id": "faq08",
+    "pergunta": "Como faço para pular?",
+    "termos_busca": ["pular", "salto", "tecla para pular", "espaço", "barra de espaço"],
+    "resposta": "Pressione a barra de espaço para pular."
+  },
+  {
+    "id": "faq09",
+    "pergunta": "Quantas vidas eu tenho?",
+    "termos_busca": ["vidas", "quantidade de vidas", "vida inicial", "começar o jogo"],
+    "resposta": "Você começa a missão com 3 vidas. Tome cuidado para não perder todas!"
+  },
+  {
+    "id": "faq10",
+    "pergunta": "O que acontece quando um zumbi me ataca?",
+    "termos_busca": ["zumbi me ataca", "receber dano", "perder vida", "ser atingido"],
+    "resposta": "Quando um zumbi atinge você, Cromos perde uma vida e é empurrado para trás. Evite ficar perto dos zumbis!"
+  },
+  {
+    "id": "faq11",
+    "pergunta": "Como recupero uma vida?",
+    "termos_busca": ["recuperar vida", "ganhar vida", "restaurar vida", "vida perdida"],
+    "resposta": "Fique atento às possibilidades de recuperação de vida disponíveis durante a missão. Não conte com a recuperação automática depois de receber um ataque."
+  },
+  {
+    "id": "faq12",
+    "pergunta": "Como os zumbis percebem minha presença?",
+    "termos_busca": ["zumbis me veem", "zumbis me detectam", "ser percebido", "detecção dos zumbis"],
+    "resposta": "Os zumbis podem perceber sua presença dependendo da distância e de como você está se movimentando."
+  },
+  {
+    "id": "faq13",
+    "pergunta": "Correr chama a atenção dos zumbis?",
+    "termos_busca": ["correr chama atenção", "zumbis ouvem corrida", "zumbis percebem quando corro"],
+    "resposta": "Sim. Correr aumenta a chance de os zumbis perceberem você. Use a corrida com cuidado!"
+  },
+  {
+    "id": "faq14",
+    "pergunta": "Rastejar ajuda a evitar os zumbis?",
+    "termos_busca": ["rastejar evita zumbis", "ficar escondido", "zumbis percebem rastejando", "passar despercebido"],
+    "resposta": "Sim. Rastejar diminui a chance de os zumbis perceberem você. É uma boa opção para passar por áreas perigosas com mais cuidado."
+  },
+  {
+    "id": "faq15",
+    "pergunta": "Qual movimento faz menos barulho ou chama menos atenção?",
+    "termos_busca": ["movimento mais silencioso", "chamar menos atenção", "ficar parado", "andar ou correr", "esconder dos zumbis"],
+    "resposta": "Ficar parado ou rastejar ajuda a chamar menos atenção. Correr é a opção que mais facilita a detecção pelos zumbis."
+  },
+  {
+    "id": "faq16",
+    "pergunta": "O que os zumbis fazem quando me encontram?",
+    "termos_busca": ["zumbis me perseguem", "perseguição", "zumbi vem atrás", "fugir dos zumbis"],
+    "resposta": "Quando percebem você, os zumbis tentam se aproximar e perseguir seu personagem. Procure fugir e manter distância."
+  },
+  {
+    "id": "faq17",
+    "pergunta": "Quando os zumbis conseguem me atacar?",
+    "termos_busca": ["distância do ataque", "zumbi ataca", "ataque dos zumbis", "zumbi perto"],
+    "resposta": "Os zumbis tentam atacar quando conseguem chegar perto o suficiente de você. Não deixe que eles se aproximem!"
+  },
+  {
+    "id": "faq18",
+    "pergunta": "Os zumbis podem atacar várias vezes seguidas?",
+    "termos_busca": ["ataques seguidos", "intervalo entre ataques", "zumbi ataca novamente", "frequência dos ataques"],
+    "resposta": "Os zumbis precisam esperar um pequeno intervalo entre um ataque e outro. Mesmo assim, não fique perto deles!"
+  },
+  {
+    "id": "faq19",
+    "pergunta": "O que os zumbis fazem quando não me encontram?",
+    "termos_busca": ["zumbis patrulham", "zumbis andando", "zumbis sem me encontrar", "comportamento dos zumbis"],
+    "resposta": "Quando não percebem sua presença, os zumbis circulam pelo cenário. Fique atento ao caminho deles para evitar encontros."
+  },
+  {
+    "id": "faq20",
+    "pergunta": "Os zumbis ficam parados ou se movimentam pelo cenário?",
+    "termos_busca": ["zumbis se movimentam", "zumbis andam", "patrulha", "movimento dos zumbis"],
+    "resposta": "Os zumbis se movimentam pelo cenário enquanto procuram por você. Observe seus movimentos antes de avançar."
+  },
+  {
+    "id": "faq21",
+    "pergunta": "Os zumbis me perseguem para sempre?",
+    "termos_busca": ["zumbi para de perseguir", "escapar de zumbi", "perseguição termina", "se afastar dos zumbis"],
+    "resposta": "Não necessariamente. Se você conseguir se afastar o suficiente, o zumbi pode parar de perseguir você."
+  },
+  {
+    "id": "faq22",
+    "pergunta": "Qual é o meu nome?",
+    "termos_busca": ["qual meu nome", "como me chamo", "nome do protagonista", "nome do personagem", "quem sou eu", "Cromos"],
+    "resposta": "Seu nome é Cromos, o protagonista de Campos Zone!"
+  },
+  {
+    "id": "faq23",
+    "pergunta": "Posso derrotar os zumbis?",
+    "termos_busca": ["matar zumbis", "derrotar zumbis", "atacar zumbis", "eliminar zumbis", "combater zumbis"],
+    "resposta": "Não é possível derrotar os zumbis diretamente. Sua melhor estratégia é evitar confrontos, fugir quando necessário e aproveitar o cenário para se proteger."
+  },
+  {
+    "id": "faq24",
+    "pergunta": "Como ligo a lanterna?",
+    "termos_busca": ["ligar lanterna", "acender lanterna", "botão da lanterna", "usar lanterna"],
+    "resposta": "A lanterna pode ser ligada pelo botão correspondente do controle. No momento, não há uma tecla do teclado configurada para essa ação."
+  },
+  {
+    "id": "faq25",
+    "pergunta": "Com quanta bateria a lanterna começa?",
+    "termos_busca": ["bateria inicial", "carga inicial", "bateria da lanterna", "energia da lanterna"],
+    "resposta": "A lanterna começa com 100 pontos de bateria. Fique de olho na carga para não ficar sem iluminação."
+  },
+  {
+    "id": "faq26",
+    "pergunta": "Quanto tempo dura a bateria da lanterna?",
+    "termos_busca": ["duração da bateria", "quanto dura a lanterna", "bateria acaba", "consumo da lanterna"],
+    "resposta": "A duração depende de quanto você usa a lanterna. Ela consome bateria enquanto permanece ligada."
+  },
+  {
+    "id": "faq27",
+    "pergunta": "Onde consigo mais bateria para a lanterna?",
+    "termos_busca": ["encontrar bateria", "pegar bateria", "coletar bateria", "recarregar lanterna", "bateria pelo cenário"],
+    "resposta": "Você pode encontrar baterias espalhadas pelo cenário. Cada bateria pode recuperar até 50 pontos de carga, respeitando o limite máximo."
+  },
+  {
+    "id": "faq28",
+    "pergunta": "O que acontece quando a bateria da lanterna acaba?",
+    "termos_busca": ["bateria zerada", "lanterna sem bateria", "lanterna piscando", "bateria acabou"],
+    "resposta": "Quando a bateria acaba, a lanterna deixa de iluminar continuamente e passa a piscar de tempos em tempos."
+  },
+  {
+    "id": "faq29",
+    "pergunta": "Por que não consigo pegar uma bateria?",
+    "termos_busca": ["não consigo pegar bateria", "bateria não coleta", "inventário cheio", "lanterna cheia", "coletar item"],
+    "resposta": "Para coletar uma bateria, você precisa ter a lanterna e espaço disponível na carga. Se a bateria já estiver cheia, o item permanece no cenário."
+  },
+  {
+    "id": "faq30",
+    "pergunta": "Como interajo com portas e objetos?",
+    "termos_busca": ["abrir porta", "interagir com porta", "interagir com objetos", "entrar pela porta", "botão de interação"],
+    "resposta": "Aproxime-se da porta ou do objeto e use o botão de interação do controle. No momento, não há uma tecla do teclado configurada para essa ação."
+  }
+]

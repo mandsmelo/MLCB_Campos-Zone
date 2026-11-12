@@ -1,0 +1,13 @@
+﻿pergunta,faq_esperada,primeiro_resultado,similaridade_primeiro,acerto_primeiro,acerto_top3,tempo_medio_ms
+Quais teclas posso usar para andar pelo cenário?,faq01,faq01,54.31,True,True,5.55
+Como ativo o modo de corrida do personagem?,faq02,faq07,54.2,False,False,4.07
+Até quantos pontos de energia o personagem pode chegar?,faq03,faq03,61.07,True,True,4.1
+De que maneira a stamina se regenera depois de ser utilizada?,faq04,faq04,60.39,True,True,4.27
+"Depois que a energia chega a zero, quando posso voltar a correr?",faq05,faq05,64.92,True,True,4.67
+Qual é a duração do salto do personagem?,faq08,faq08,61.82,True,True,4.1
+O que ocorre com o jogador quando ele recebe um ataque de zumbi?,faq10,faq19,57.62,False,True,3.88
+Qual sistema o zumbi utiliza para encontrar o caminho até o jogador?,faq16,faq16,74.88,True,True,3.82
+Em qual sequência de direções os zumbis patrulham o cenário?,faq20,faq20,71.89,True,True,3.78
+Qual comando do controle permite acionar a lanterna?,faq24,faq24,74.34,True,True,4.61
+Como faço para repor a carga da lanterna utilizando uma pilha?,faq27,faq24,54.83,False,True,3.81
+Qual botão do controle devo utilizar para interagir com portas e objetos?,faq30,faq30,74.29,True,True,3.88
