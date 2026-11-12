@@ -15,6 +15,7 @@ chatbot/modelos/banco_vetorial/
 # Modelos treinados
 *.joblib
 !notebooks/regressao/modelos/melhor_modelo.joblib
+!regressao/modelos/melhor_modelo.joblib
 
 # Arquivos de backup
 api/servidor_backup.py

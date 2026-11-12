@@ -92,7 +92,13 @@ def conectar_banco():
 def buscar_resposta(pergunta, modelo, colecao):
 
     if not pergunta.strip():
-        return None
+        return {
+            "pergunta_encontrada": "",
+            "resposta": "Digite uma pergunta para eu poder ajudar.",
+            "fonte": "fallback",
+            "similaridade": 0.0,
+            "encontrou_resposta": False
+        }
 
     # Gera o embedding da pergunta do jogador.
     embedding = modelo.encode(
@@ -112,7 +118,15 @@ def buscar_resposta(pergunta, modelo, colecao):
     )
 
     if not resultado["ids"][0]:
-        return None
+        return {
+            "pergunta_encontrada": "",
+            "resposta": "Desculpe, não encontrei uma resposta para essa pergunta."
+            "Posso ajudar com informações sobre os comandos, movimentação, "
+            "zumbis, lanterna e interações do Campos Zone!",
+            "fonte": "fallback",
+            "similaridade": 0.0,
+            "encontrou_resposta": False
+        }
 
     distancia = resultado["distances"][0][0]
 
@@ -129,7 +143,8 @@ def buscar_resposta(pergunta, modelo, colecao):
             "fonte",
             "base_conhecimento.json"
         ),
-        "similaridade": similaridade
+        "similaridade": similaridade,
+        "encontrou_resposta": similaridade >= LIMIAR_SIMILARIDADE
     }
 
     return resposta
@@ -163,21 +178,12 @@ def exibir_resposta(resultado):
         f"{similaridade * 100:.2f}%"
     )
 
-    if similaridade < LIMIAR_SIMILARIDADE:
-
-        print(
-            "\nNão encontrei uma resposta "
-            "com relevância suficiente."
-        )
-
+    if not resultado.get("encontrou_resposta", similaridade >= LIMIAR_SIMILARIDADE):
+        print("\n" + resultado["resposta"])
     else:
-
         print("\nResposta:")
-
         print(resultado["resposta"])
-
         print("\nFonte:")
-
         print(resultado["fonte"])
 
     print("----------------------------------------\n")

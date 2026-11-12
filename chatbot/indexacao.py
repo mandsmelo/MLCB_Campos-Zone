@@ -51,25 +51,18 @@ def carregar_documentos():
 
         dados = json.load(arquivo)
 
-    # Aceita uma lista ou um objeto
-    # contendo a chave "perguntas".
-
     if isinstance(dados, dict):
-
         documentos = dados.get("perguntas", [])
 
     elif isinstance(dados, list):
-
         documentos = dados
 
     else:
-
         raise ValueError(
             "Formato do JSON invalido."
         )
 
     if not documentos:
-
         raise ValueError(
             "A base de conhecimento esta vazia."
         )
@@ -87,7 +80,6 @@ def carregar_documentos():
         for campo in campos_obrigatorios:
 
             if campo not in doc:
-
                 raise ValueError(
                     f"Documento sem o campo '{campo}': {doc}"
                 )
@@ -112,18 +104,12 @@ def carregar_documentos():
 
         ids.append(doc["id"])
 
-        # A fonte e opcional.
-        # Caso nao exista, utiliza o nome do arquivo.
-
         doc["fonte"] = doc.get(
             "fonte",
             "base_conhecimento.json"
         )
 
-    # Verifica se existem IDs repetidos.
-
     if len(ids) != len(set(ids)):
-
         raise ValueError(
             "Existem IDs duplicados na base."
         )
@@ -134,83 +120,114 @@ def carregar_documentos():
 
     return documentos
 
+
 # ==========================================
-# 3. PREPARAR TEXTOS COM TERMOS ALTERNATIVOS
+# 3. TERMOS ALTERNATIVOS DE BUSCA
 # ==========================================
 
-# Termos adicionais para melhorar a recuperação semântica.
-# Eles são utilizados somente na geração dos embeddings.
-# As perguntas e respostas originais permanecem inalteradas.
+# Estes termos ajudam o chatbot a encontrar
+# respostas mesmo quando o jogador utiliza
+# palavras diferentes das perguntas cadastradas.
+#
+# Eles sao usados somente na geracao dos embeddings.
+# As respostas exibidas continuam sendo as do JSON.
 
 TERMOS_BUSCA = {
 
+    # Movimentacao
     "faq01": [
-        "andar pelo cenário",
-        "movimentação básica do personagem",
-        "movimentar para frente, trás e lados",
-        "comandos direcionais",
-        "teclas para caminhar",
-        "deslocamento normal sem correr"
+        "teclas WASD",
+        "W A S D",
+        "andar para cima baixo esquerda direita",
+        "movimentar com teclado",
+        "controles de movimentacao"
     ],
 
+    # Correr com CTRL
     "faq02": [
-        "correr",
-        "corrida",
+        "ctrl",
+        "control",
+        "tecla ctrl",
+        "segurar ctrl para correr",
+        "correr com control",
+        "como correr",
+        "botao de corrida",
+        "corrida do personagem",
         "sprint",
-        "acelerar o personagem",
-        "aumentar velocidade de movimento",
-        "movimentação rápida",
-        "correr pelo cenário",
-        "deslocamento em alta velocidade"
+        "gastar energia correndo",
+        "barra de energia durante a corrida"
     ],
 
+    # Barra de energia
     "faq03": [
-        "capacidade máxima de energia",
+        "capacidade maxima de energia",
+        "energia maxima",
+        "quantidade maxima de resistencia",
+        "barra de energia",
         "limite de stamina",
-        "energia máxima",
-        "quantidade máxima de resistência",
-        "barra de energia"
+        "quanto de energia o personagem possui",
+        "energia total do jogador"
     ],
 
-     "faq04": [
+    # Recuperacao de energia
+    "faq04": [
         "recuperar energia gasta",
         "regenerar stamina",
-        "restaurar resistência",
-        "recuperar fôlego",
+        "restaurar resistencia",
+        "recuperar folego",
         "energia se recuperar com o tempo",
         "descansar para recuperar energia",
         "repor a barra de energia",
-        "voltar a ter energia"
+        "voltar a ter energia",
+        "como recarregar energia"
     ],
 
+    # Energia esgotada
     "faq05": [
         "energia esgotada",
         "ficar sem stamina",
-        "não conseguir mais correr",
+        "nao conseguir mais correr",
         "limite de corrida",
-        "cansaço do personagem",
+        "cansaco do personagem",
         "energia insuficiente para correr",
-        "consequências de gastar toda a energia"
+        "consequencias de gastar toda a energia",
+        "barra de energia vazia"
     ],
-    
+
+    # Rastejar com SHIFT
     "faq06": [
-        "rastejar",
-        "engatinhar",
-        "movimentação agachada",
-        "andar abaixado",
-        "deslocamento furtivo",
-        "movimento silencioso"
+        "shift",
+        "tecla shift",
+        "segurar shift para rastejar",
+        "como rastejar",
+        "botao para rastejar",
+        "agachar",
+        "andar agachado",
+        "movimento furtivo",
+        "se esconder dos zumbis",
+        "passar despercebido"
     ],
 
+    # Velocidades
+    "faq07": [
+        "velocidade andando",
+        "velocidade correndo",
+        "velocidade rastejando",
+        "rapidez do personagem",
+        "velocidade de movimentacao",
+        "diferenca entre andar correr e rastejar"
+    ],
+
+    # Pulo
     "faq08": [
-        "pular",
+        "barra de espaco",
+        "space",
+        "tecla espaco",
         "salto",
-        "duração do pulo",
-        "tempo no ar",
-        "altura do salto",
-        "movimento de salto"
+        "pular"
     ],
 
+    # Dano e vidas
     "faq10": [
         "receber dano",
         "ser atingido",
@@ -220,68 +237,156 @@ TERMOS_BUSCA = {
         "dano causado por inimigos"
     ],
 
+    # Perseguicao dos zumbis
+    "faq12": [
+        "como os zumbis enxergam o jogador",
+        "deteccao do jogador",
+        "percepcao dos inimigos",
+        "distancia para detectar o jogador"
+    ],
+
+    "faq13": [
+        "correr chama a atencao dos zumbis",
+        "zumbis detectam quem corre",
+        "barulho da corrida",
+        "ser detectado correndo"
+    ],
+
+    "faq14": [
+        "rastejar evita zumbis",
+        "esconder dos zumbis",
+        "evitar deteccao",
+        "movimento furtivo",
+        "passar despercebido pelos inimigos"
+    ],
+
+    "faq15": [
+        "alcance de deteccao",
+        "distancia de percepcao dos zumbis",
+        "distancia para ser encontrado",
+        "raio de deteccao dos inimigos"
+    ],
+
     "faq16": [
-        "perseguição dos zumbis",
-        "navegação dos inimigos",
+        "perseguicao dos zumbis",
+        "navegacao dos inimigos",
         "calcular rota",
-        "encontrar caminho até o jogador",
+        "encontrar caminho ate o jogador",
         "seguir o sobrevivente",
         "trajeto dos inimigos",
         "NavigationAgent2D"
     ],
 
-   
+    "faq17": [
+        "ataque dos zumbis",
+        "distancia de ataque",
+        "quando o inimigo ataca",
+        "zumbi perto do jogador"
+    ],
+
+    "faq18": [
+        "intervalo entre ataques",
+        "frequencia de ataque",
+        "tempo entre golpes",
+        "quantas vezes o zumbi ataca"
+    ],
+
+    "faq19": [
+        "patrulha dos zumbis",
+        "inimigos andando pelo cenario",
+        "zumbis sem detectar o jogador"
+    ],
+
     "faq20": [
         "patrulha dos zumbis",
         "ronda dos mortos-vivos",
         "caminho percorrido durante a ronda",
         "rota de patrulhamento",
-        "circular pelo cenário sem perseguir",
-        "movimentação dos inimigos em patrulha",
-        "andar de um lado para outro",
-        "percurso dos zumbis quando não detectam o jogador"
+        "circular pelo cenario sem perseguir",
+        "movimentacao dos inimigos em patrulha",
+        "andar de um lado para outro"
     ],
 
-
-      "faq23": [
-        "morte dos zumbis",
-        "inimigos derrotados",
-        "destruição dos mortos-vivos",
-        "quando um zumbi morre",
-        "consequências de eliminar um inimigo",
-        "estado do inimigo após ser derrotado"
+    "faq21": [
+        "zumbi desiste da perseguicao",
+        "perder zumbi de vista",
+        "distancia para o inimigo parar de perseguir",
+        "interromper perseguicao"
     ],
 
+    "faq22": [
+        "zumbi preso",
+        "inimigo preso em obstaculo",
+        "destravar zumbi",
+        "zumbi nao consegue andar"
+    ],
+
+    "faq23": [
+        "matar zumbi",
+        "derrotar zumbis",
+        "atacar inimigos",
+        "combater zumbi",
+        "nao consigo matar zumbi"
+    ],
+
+    # Lanterna
     "faq24": [
-        "lanterna",
-        "acender a lanterna",
-        "equipamento para iluminar",
-        "iluminação portátil",
-        "enxergar no escuro",
-        "fonte de luz do personagem",
-        "utilizar luz em ambientes escuros",
-        "equipamento que consome carga"
+        "ligar lanterna no controle",
+        "eixo 4",
+        "botao do controle",
+        "tecla da lanterna"
     ],
 
-      "faq27": [
+    "faq25": [
+        "bateria inicial da lanterna",
+        "carga inicial",
+        "capacidade da bateria",
+        "bateria maxima"
+    ],
+
+    "faq26": [
+        "duracao da bateria",
+        "quanto tempo a lanterna funciona",
+        "consumo de bateria",
+        "bateria acabando"
+    ],
+
+    "faq27": [
         "pilhas",
         "baterias para lanterna",
-        "encontrar pilhas no cenário",
-        "coletar recursos de iluminação",
+        "encontrar pilhas no cenario",
+        "coletar recursos de iluminacao",
         "recarregar a lanterna",
         "repor a carga da lanterna",
         "abastecer equipamento de luz",
-        "recuperar a bateria",
-        "itens usados para recarregar a iluminação"
+        "recuperar a bateria"
     ],
 
+    "faq28": [
+        "lanterna sem bateria",
+        "bateria zerada",
+        "lanterna piscando",
+        "clarões da lanterna",
+        "o que acontece quando acaba a carga"
+    ],
+
+    "faq29": [
+        "nao consigo pegar pilha",
+        "coletar bateria",
+        "pilha nao desaparece",
+        "bateria cheia",
+        "problema ao coletar pilha"
+    ],
+
+    # Interacao
     "faq30": [
-        "abrir uma porta",
-        "atravessar uma entrada",
-        "mudar de cenário",
-        "trocar de área",
-        "transição entre cenas",
-        "acessar outra sala"
+        "interagir com objetos",
+        "botao 1 do controle",
+        "controle gamepad",
+        "tecla de interacao",
+        "abrir porta",
+        "interagir com portas",
+        "como usar objetos"
     ]
 }
 
@@ -350,10 +455,6 @@ def gerar_embeddings(textos, modelo):
 
 def criar_colecao(cliente):
 
-    # Verifica se a colecao ja existe.
-    # Se existir, remove para garantir
-    # a configuracao de distancia de cosseno.
-
     colecoes = cliente.list_collections()
 
     nomes_colecoes = [
@@ -370,9 +471,6 @@ def criar_colecao(cliente):
         cliente.delete_collection(
             name=NOME_COLECAO
         )
-
-    # Cria uma nova colecao utilizando
-    # distancia de cosseno.
 
     colecao = cliente.create_collection(
         name=NOME_COLECAO,
@@ -410,9 +508,6 @@ def armazenar_no_banco(
     )
 
     colecao = criar_colecao(cliente)
-
-    # Armazena os IDs, textos, embeddings
-    # e metadados de cada documento.
 
     colecao.add(
 
